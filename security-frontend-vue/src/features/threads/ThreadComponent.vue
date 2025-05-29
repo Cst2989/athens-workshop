@@ -10,8 +10,6 @@
 </template>
 
 <script>
-import DOMPurify from 'dompurify';
-
 export default {
   props: ['content'],
   data() {
@@ -22,12 +20,12 @@ export default {
   },
   computed: {
     sanitisedContent() {
-      return DOMPurify.sanitize(this.content);
+      return this.content;
     },
   },
   methods: {
     addReply() {
-      this.replies.push(DOMPurify.sanitize(this.reply));
+      this.replies.push(this.reply);
       this.reply = '';
     },
   },
@@ -45,6 +43,4 @@ export default {
   padding-top: 10px;
 }
 </style>
-import { sanitize } from 'dompurify';
-import { computed } from 'vue';
 

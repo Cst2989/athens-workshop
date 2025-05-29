@@ -3,13 +3,11 @@
 </template>
 
 <script>
-import DOMPurify from 'dompurify';
-
 const ReviewComponent = {
   props: ['reviewContent'],
   computed: {
     safeContent() {
-      return DOMPurify.sanitize(this.reviewContent);
+      return this.reviewContent;
     }
   }
 };
